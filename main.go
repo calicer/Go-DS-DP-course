@@ -2,11 +2,13 @@ package main
 
 import (
 	"DP-DS/LinkedList"
+	"DP-DS/Stack"
 	"fmt"
 )
 
 func main() {
-	callLinkedList()
+	//callLinkedList()
+	callStack()
 }
 
 func callLinkedList() {
@@ -33,4 +35,21 @@ func callLinkedList() {
 		fmt.Println(err)
 	}
 	println(v)
+}
+
+func callStack() {
+	s := Stack.Stack{}
+	s.Push(1)
+	s.Push(2)
+	s.Push(3)
+	fmt.Println(s)
+	i, err := s.Pop()
+	i, err = s.Pop()
+	i, err = s.Pop()
+	i, err = s.Pop()
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(i)
 }
