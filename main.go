@@ -3,12 +3,32 @@ package main
 import (
 	"DP-DS/LinkedList"
 	"DP-DS/Stack"
+	"DP-DS/Que"
+	"DP-DS/BinaryTree"
 	"fmt"
 )
 
 func main() {
 	//callLinkedList()
-	callStack()
+	//callStack()
+	//callQue()
+	callTree()
+}
+
+
+func callTree(){
+	t := &BinaryTree.Tree{}
+	v := t.Insert(10).Insert(20).Insert(3).Insert(12).Insert(15).Insert(25).Insert(23)
+	fmt.Printf("%+v",v.Node)
+
+}
+func callQue(){
+	q := &Que.Que{ Item: make(chan int, 16),}
+	q.EnQue(1)
+	q.EnQue(2)
+	fmt.Printf("%+v",q.Item)
+//	fmt.Printf("%+v",q.DeQue)
+	println(q.DeQue())
 }
 
 func callLinkedList() {
