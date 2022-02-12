@@ -18,8 +18,10 @@ func main() {
 
 func callTree(){
 	t := &BinaryTree.Tree{}
-	v := t.Insert(10).Insert(20).Insert(3).Insert(12).Insert(15).Insert(25).Insert(23)
-	fmt.Printf("%+v",v.Node)
+	t.Insert(10).Insert(20).Insert(3).Insert(9).Insert(15).Insert(25).Insert(23)
+	BinaryTree.PrintNode(t.Node)
+	println(t.Node.Value)
+	println(t.Node.Exists(23))
 
 }
 func callQue(){
