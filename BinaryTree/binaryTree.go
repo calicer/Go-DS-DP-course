@@ -67,6 +67,7 @@ func (n *Node) Exists(value int) bool{
 		println("Here")
 		return false
 	} 
+	println(n.Value)
 	if n.Value == value{
 		return true
 	} 

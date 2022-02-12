@@ -4,6 +4,7 @@ import (
 	"DP-DS/LinkedList"
 	"DP-DS/Stack"
 	"DP-DS/Que"
+	"DP-DS/Channels"
 	"DP-DS/BinaryTree"
 	"fmt"
 )
@@ -12,7 +13,14 @@ func main() {
 	//callLinkedList()
 	//callStack()
 	//callQue()
-	callTree()
+	//callTree()
+
+
+	//-------chan
+		ch := make(chan int, 10)
+		go Channels.PrintAfter(ch)
+		fmt.Println(<-ch)
+	//-------chan
 }
 
 
@@ -21,7 +29,7 @@ func callTree(){
 	t.Insert(10).Insert(20).Insert(3).Insert(9).Insert(15).Insert(25).Insert(23)
 	BinaryTree.PrintNode(t.Node)
 	println(t.Node.Value)
-	println(t.Node.Exists(23))
+	println(t.Node.Exists(9))
 
 }
 func callQue(){
