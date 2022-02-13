@@ -4,9 +4,10 @@ import (
 	"DP-DS/LinkedList"
 	"DP-DS/Stack"
 	"DP-DS/Que"
-	"DP-DS/Channels/Five"
+	//"DP-DS/Channels/Five"
 	"DP-DS/BinaryTree"
 	//"DP-DS/FanIn"
+	"DP-DS/FanOut"
 	"fmt"
 )
 
@@ -35,12 +36,21 @@ func main() {
 	//*********************************
 
 	//5sec
+	// chA := make(chan int)
+	// chB := make(chan int)
+	// go Five.PrintFive(chA)
+	// go Five.PrintTen(chB)
+	// Five.Read(chA,chB)
+	//************************
+
+	//fanOut
 	chA := make(chan int)
 	chB := make(chan int)
-	go Five.PrintFive(chA)
-	go Five.PrintTen(chB)
-	Five.Read(chA,chB)
-
+	chC := make(chan int)
+	go FanOut.Producer(chA)
+	go FanOut.Consumer(chB,"chB")
+	go FanOut.Consumer(chC, "chC")
+	FanOut.FanOut(chA,chB,chC)
 }
 
 
